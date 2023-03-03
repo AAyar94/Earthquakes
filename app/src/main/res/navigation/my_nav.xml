@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/lastEarthquakesFragment"
-        android:name="com.aayar94.earthquakes.LastEarthquakesFragment"
+        android:name="com.aayar94.earthquakes.ui.fragment.LastEarthquakesFragment"
         android:label="fragment_last_earthquakes"
         tools:layout="@layout/fragment_last_earthquakes" >
         <action
@@ -16,12 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/riskMapFragment"
-        android:name="com.aayar94.earthquakes.RiskMapFragment"
+        android:name="com.aayar94.earthquakes.ui.fragment.RiskMapFragment"
         android:label="fragment_risk_map"
         tools:layout="@layout/fragment_risk_map" />
     <fragment
         android:id="@+id/earthquakeDetailsFragment"
-        android:name="com.aayar94.earthquakes.EarthquakeDetailsFragment"
+        android:name="com.aayar94.earthquakes.ui.fragment.EarthquakeDetailsFragment"
         android:label="fragment_earthquake_details"
         tools:layout="@layout/fragment_earthquake_details" >
         <action
