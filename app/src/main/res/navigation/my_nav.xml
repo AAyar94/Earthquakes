@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/lastEarthquakesFragment"
-        android:name="com.aayar94.earthquakes.ui.fragment.LastEarthquakesFragment"
+        android:name="com.aayar94.earthquakes.ui.fragment.LastEarthquakes.LastEarthquakesFragment"
         android:label="fragment_last_earthquakes"
         tools:layout="@layout/fragment_last_earthquakes" >
         <action
@@ -27,5 +27,8 @@
         <action
             android:id="@+id/action_earthquakeDetailsFragment_to_lastEarthquakesFragment"
             app:destination="@id/lastEarthquakesFragment" />
+        <argument
+            android:name="earthquake"
+            app:argType="com.aayar94.earthquakes.model.EarthquakeModel" />
     </fragment>
 </navigation>
