@@ -24,10 +24,12 @@ class AdapterLastEarthquakesRV :
                 cardMag.setCardBackgroundColor(items[position].magnitudeColor)
                 root.setBackgroundColor(items[position].magnitudeColorLight)
                 root.setOnClickListener {
-                    val action =
+                    /*val action =
                         LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToEarthquakeDetailsFragment(
                             items[position]
-                        )
+                        )*/
+
+                    val action = LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(items[position])
                     Navigation.findNavController(it).navigate(action)
                 }
             }

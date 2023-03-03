@@ -5,6 +5,7 @@ apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'com.google.dagger.hilt.android'
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 android {
     namespace 'com.aayar94.earthquakes'
@@ -57,6 +58,7 @@ dependencies {
 
     // Room components
     implementation "androidx.room:room-runtime:2.5.0"
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
     kapt "androidx.room:room-compiler:2.5.0"
     implementation "androidx.room:room-ktx:2.5.0"
     //androidTestImplementation "androidx.room:room-testing:2.5.0"

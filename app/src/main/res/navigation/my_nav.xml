@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_lastEarthquakesFragment_to_earthquakeDetailsFragment"
             app:destination="@id/earthquakeDetailsFragment" />
+        <action
+            android:id="@+id/action_lastEarthquakesFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/riskMapFragment"
@@ -29,6 +32,18 @@
             app:destination="@id/lastEarthquakesFragment" />
         <argument
             android:name="earthquake"
+            app:argType="com.aayar94.earthquakes.model.EarthquakeModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.aayar94.earthquakes.ui.fragment.MapsFragment.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_lastEarthquakesFragment"
+            app:destination="@id/lastEarthquakesFragment" />
+        <argument
+            android:name="earthquakeModel"
             app:argType="com.aayar94.earthquakes.model.EarthquakeModel" />
     </fragment>
 </navigation>

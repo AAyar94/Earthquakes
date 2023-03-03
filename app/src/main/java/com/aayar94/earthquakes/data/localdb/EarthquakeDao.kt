@@ -13,4 +13,6 @@ interface EarthquakeDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertEarthquakes(list: List<EarthquakeModel>)
+
+
 }
