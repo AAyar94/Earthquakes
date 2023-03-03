@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/lastEarthquakesFragment">
+
+    <fragment
+        android:id="@+id/lastEarthquakesFragment"
+        android:name="com.aayar94.earthquakes.LastEarthquakesFragment"
+        android:label="fragment_last_earthquakes"
+        tools:layout="@layout/fragment_last_earthquakes" >
+        <action
+            android:id="@+id/action_lastEarthquakesFragment_to_earthquakeDetailsFragment"
+            app:destination="@id/earthquakeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/riskMapFragment"
+        android:name="com.aayar94.earthquakes.RiskMapFragment"
+        android:label="fragment_risk_map"
+        tools:layout="@layout/fragment_risk_map" />
+    <fragment
+        android:id="@+id/earthquakeDetailsFragment"
+        android:name="com.aayar94.earthquakes.EarthquakeDetailsFragment"
+        android:label="fragment_earthquake_details"
+        tools:layout="@layout/fragment_earthquake_details" >
+        <action
+            android:id="@+id/action_earthquakeDetailsFragment_to_lastEarthquakesFragment"
+            app:destination="@id/lastEarthquakesFragment" />
+    </fragment>
+</navigation>
