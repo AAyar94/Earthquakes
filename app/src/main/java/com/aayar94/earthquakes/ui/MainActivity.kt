@@ -2,6 +2,7 @@ package com.aayar94.earthquakes.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.aayar94.earthquakes.R
 import com.aayar94.earthquakes.databinding.ActivityMainBinding
+import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.navHostController) as NavHostFragment
@@ -33,8 +38,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(navController)
         setupActionBarWithNavController(navController, appBarConfig)
+        setStatusAndNavBarColor()
     }
+    fun setStatusAndNavBarColor() {
+        val window = window
+        val color = SurfaceColors.SURFACE_2.getColor(this)
+        window!!.statusBarColor = color // Set color of system statusBar same as ActionBar
+        window.navigationBarColor =
+            color // Set color of system navigationBar same as BottomNavigationView
 
+    }
     override fun onSupportNavigateUp(): Boolean {
         return super.onSupportNavigateUp() || findNavController(R.id.navHostController).navigateUp()
     }

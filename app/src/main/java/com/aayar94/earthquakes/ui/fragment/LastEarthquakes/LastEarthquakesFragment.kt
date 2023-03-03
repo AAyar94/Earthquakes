@@ -2,11 +2,14 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.SurfaceControl
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.aayar94.earthquakes.databinding.FragmentLastEarthquakesBinding
+import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +18,13 @@ class LastEarthquakesFragment : Fragment() {
     private val binding get() = mBinding!!
 
 
-    val mAdapter: AdapterLastEarthquakesRV by lazy { AdapterLastEarthquakesRV() }
+    val mAdapter: AdapterLastEarthquakesRV by lazy {
+        AdapterLastEarthquakesRV {
+            val action =
+                LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(it)
+            findNavController().navigate(action)
+        }
+    }
 
     val viewModel: LastEarthquakesViewModel by viewModels()
 
@@ -27,14 +36,27 @@ class LastEarthquakesFragment : Fragment() {
 
         setupRecyclerView()
         initObserver()
+        setStatusAndNavBarColor()
+
+        binding
 
         return binding.root
+    }
+
+    private fun setStatusAndNavBarColor() {
+        val window = activity?.window
+        val color = SurfaceColors.SURFACE_2.getColor(requireContext())
+        window!!.statusBarColor = color // Set color of system statusBar same as ActionBar
+        window.navigationBarColor =
+            color // Set color of system navigationBar same as BottomNavigationView
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getEarthquakes()
     }
+
     private fun setupRecyclerView() {
         binding.earthquakesRV.adapter = mAdapter
     }
@@ -44,6 +66,4 @@ class LastEarthquakesFragment : Fragment() {
             mAdapter.setItems(it)
         }
     }
-
-
 }

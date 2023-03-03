@@ -2,12 +2,13 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.aayar94.earthquakes.model.EarthquakeModel
 
-class AdapterLastEarthquakesRV :
+class AdapterLastEarthquakesRV(
+    val onItemClick: (earthquakeModel: EarthquakeModel) -> Unit
+) :
     RecyclerView.Adapter<AdapterLastEarthquakesRV.EarthquakeViewHolder>() {
 
     private val items: MutableList<EarthquakeModel> = mutableListOf()
@@ -24,13 +25,7 @@ class AdapterLastEarthquakesRV :
                 cardMag.setCardBackgroundColor(items[position].magnitudeColor)
                 root.setBackgroundColor(items[position].magnitudeColorLight)
                 root.setOnClickListener {
-                    /*val action =
-                        LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToEarthquakeDetailsFragment(
-                            items[position]
-                        )*/
-
-                    val action = LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(items[position])
-                    Navigation.findNavController(it).navigate(action)
+                    onItemClick(items[position])
                 }
             }
         }
