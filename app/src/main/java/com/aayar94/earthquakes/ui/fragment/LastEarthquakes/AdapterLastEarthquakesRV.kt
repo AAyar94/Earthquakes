@@ -21,7 +21,7 @@ class AdapterLastEarthquakesRV :
                 txtDate.text = items[position].date
                 txtTime.text = items[position].time
                 divider.setBackgroundColor(items[position].magnitudeColor)
-                cardMag.setBackgroundColor(items[position].magnitudeColor)
+                cardMag.setCardBackgroundColor(items[position].magnitudeColor)
                 root.setBackgroundColor(items[position].magnitudeColorLight)
                 root.setOnClickListener {
                     val action =
