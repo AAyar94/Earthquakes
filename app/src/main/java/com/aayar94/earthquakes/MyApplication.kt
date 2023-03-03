@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui
+package com.aayar94.earthquakes
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
