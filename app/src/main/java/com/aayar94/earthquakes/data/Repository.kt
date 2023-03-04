@@ -1,5 +1,6 @@
 package com.aayar94.earthquakes.data
 
+import android.util.Log
 import com.aayar94.earthquakes.data.localdb.EarthquakeDao
 import com.aayar94.earthquakes.model.EarthquakeModel
 import javax.inject.Inject
@@ -9,7 +10,13 @@ class Repository @Inject constructor(
     val earthquakeDao: EarthquakeDao
 ) {
     suspend fun getEarthquakesFromRemote(): List<EarthquakeModel> {
-        return earthquakeService.getEarthquakes().body()?.data.orEmpty()
+        return try {
+            earthquakeService.getEarthquakes().body()?.data.orEmpty()
+        } catch (e: Exception) {
+            Log.e("RemoteError", e.message.toString())
+            earthquakeDao.getEarthquakes()
+        }
+
     }
 
     suspend fun getEarthquakesFromLocal(): List<EarthquakeModel> {
@@ -20,8 +27,19 @@ class Repository @Inject constructor(
         earthquakeDao.insertEarthquakes(list)
     }
 
-    suspend fun deleteDbList(){
+    suspend fun deleteDbList() {
         earthquakeDao.deleteDbList()
     }
 
+    suspend fun sortHighMag(): List<EarthquakeModel> {
+        return earthquakeDao.sortHighMag()
+    }
+
+    suspend fun sortLowMag(): List<EarthquakeModel> {
+        return earthquakeDao.sortLowMag()
+    }
+
+    suspend fun searchEarthquakes(query: String?): List<EarthquakeModel> {
+        return earthquakeDao.searchEarthquakes(query)
+    }
 }

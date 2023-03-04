@@ -1,7 +1,6 @@
 package com.aayar94.earthquakes.data.localdb
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -17,4 +16,13 @@ interface EarthquakeDao {
 
     @Query("DELETE FROM earthquakes")
     suspend fun deleteDbList()
+
+    @Query("SELECT * FROM earthquakes ORDER BY magnitude DESC")
+    suspend fun sortHighMag(): List<EarthquakeModel>
+
+    @Query("SELECT * FROM earthquakes ORDER BY magnitude ASC")
+    suspend fun sortLowMag(): List<EarthquakeModel>
+
+    @Query("SELECT * FROM earthquakes WHERE name LIKE '%' || :query || '%'")
+    suspend fun searchEarthquakes(query: String?): List<EarthquakeModel>
 }
