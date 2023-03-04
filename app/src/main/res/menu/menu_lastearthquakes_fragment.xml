@@ -23,7 +23,7 @@
                     android:title="@string/low_mag" />
                 <item
                     android:id="@+id/menu_sort_normal"
-                    android:title="Sort by Time"
+                    android:title="@string/sort_by_time"
                     tools:ignore="HardcodedText" />
             </menu>
         </item>

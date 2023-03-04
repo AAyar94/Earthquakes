@@ -6,6 +6,6 @@
     android:icon="@drawable/ic_lastearthquakes"/>
 <item
     android:id="@+id/riskMapFragment"
-    android:title="Risk Map"
+    android:title="@string/risk_map"
     android:icon="@drawable/ic_map"/>
 </menu>

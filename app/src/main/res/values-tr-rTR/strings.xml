@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Depremler</string>
+    <string name="last_earthquakes">Son Depremler</string>
+    <string name="no_connection">Bağlantı Yok</string>
+    <string name="depth">"Derinlik : "</string>
+    <string name="search">Arama</string>
+    <string name="sort">Sırala</string>
+    <string name="high_mag">Önce Büyük Şiddetli</string>
+    <string name="low_mag">Önce Küçük Şiddetli</string>
+    <string name="sort_by_time">Zamana Göre Sırala</string>
+    <string name="risk_map">Risk Haritası</string>
+    <string name="maps">Harita Görünümü</string>
+</resources>

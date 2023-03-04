@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Earthquakes</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="last_earthquakes">Last Earthquakes</string>
     <string name="no_connection">No Connection!!</string>
     <string name="depth">Depth : </string>
@@ -9,4 +9,7 @@
     <string name="sort">Sort</string>
     <string name="high_mag">High Mag</string>
     <string name="low_mag">Low Mag</string>
+    <string name="sort_by_time">Sort by Time</string>
+    <string name="risk_map">Risk Map</string>
+    <string name="maps">Map View</string>
 </resources>

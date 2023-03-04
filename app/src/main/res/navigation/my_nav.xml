@@ -8,11 +8,8 @@
     <fragment
         android:id="@+id/lastEarthquakesFragment"
         android:name="com.aayar94.earthquakes.ui.fragment.LastEarthquakes.LastEarthquakesFragment"
-        android:label="Last Earthquakes"
+        android:label="@string/last_earthquakes"
         tools:layout="@layout/fragment_last_earthquakes" >
-        <action
-            android:id="@+id/action_lastEarthquakesFragment_to_earthquakeDetailsFragment"
-            app:destination="@id/earthquakeDetailsFragment" />
         <action
             android:id="@+id/action_lastEarthquakesFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
@@ -20,24 +17,12 @@
     <fragment
         android:id="@+id/riskMapFragment"
         android:name="com.aayar94.earthquakes.ui.fragment.RiskMapFragment"
-        android:label="Risk Map"
+        android:label="@string/risk_map"
         tools:layout="@layout/fragment_risk_map" />
-    <fragment
-        android:id="@+id/earthquakeDetailsFragment"
-        android:name="com.aayar94.earthquakes.ui.fragment.EarthquakeDetailsFragment"
-        android:label="fragment_earthquake_details"
-        tools:layout="@layout/fragment_earthquake_details" >
-        <action
-            android:id="@+id/action_earthquakeDetailsFragment_to_lastEarthquakesFragment"
-            app:destination="@id/lastEarthquakesFragment" />
-        <argument
-            android:name="earthquake"
-            app:argType="com.aayar94.earthquakes.model.EarthquakeModel" />
-    </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.aayar94.earthquakes.ui.fragment.MapsFragment.MapsFragment"
-        android:label="Maps"
+        android:label="@string/maps"
         tools:layout="@layout/fragment_maps" >
         <action
             android:id="@+id/action_mapsFragment_to_lastEarthquakesFragment"
