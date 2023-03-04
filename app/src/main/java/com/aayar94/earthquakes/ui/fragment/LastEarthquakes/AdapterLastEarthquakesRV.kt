@@ -2,16 +2,18 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.aayar94.earthquakes.model.EarthquakeModel
+import com.aayar94.earthquakes.utils.EarthquakeDiffUtil
 
 class AdapterLastEarthquakesRV(
     val onItemClick: (earthquakeModel: EarthquakeModel) -> Unit
 ) :
     RecyclerView.Adapter<AdapterLastEarthquakesRV.EarthquakeViewHolder>() {
 
-    private val items: MutableList<EarthquakeModel> = mutableListOf()
+    private var items: MutableList<EarthquakeModel> = mutableListOf()
 
     inner class EarthquakeViewHolder(private val binding: RowLayoutEarthquakeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -50,10 +52,17 @@ class AdapterLastEarthquakesRV(
         holder.bindData(position)
     }
 
-    fun setItems(items: List<EarthquakeModel>) {
-        this.items.clear()
+    fun setItems(newItems: List<EarthquakeModel>) {
+        val earthquakeDiffUtil = EarthquakeDiffUtil(items, newItems)
+        val diffUtilResult = DiffUtil.calculateDiff(earthquakeDiffUtil)
+        items = newItems as MutableList<EarthquakeModel>
+        //notifyDataSetChanged()
+        diffUtilResult.dispatchUpdatesTo(this)
+
+
+    /*this.items.clear()
         this.items.addAll(items)
-        notifyDataSetChanged()
+        notifyDataSetChanged()*/
     }
 }
 

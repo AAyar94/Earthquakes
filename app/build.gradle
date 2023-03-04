@@ -102,9 +102,9 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.9.0'
 
+    //okHttpClient Logging Interceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
 
-
-
-
+    // Swipe Refresh Layout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }

@@ -2,7 +2,6 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.SurfaceControl
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -38,7 +37,12 @@ class LastEarthquakesFragment : Fragment() {
         initObserver()
         setStatusAndNavBarColor()
 
-        binding
+        binding.swipeToRefreshLayout.setOnRefreshListener {
+            binding.swipeToRefreshLayout.isRefreshing = false
+            viewModel.refreshEarthquakes()
+            initObserver()
+
+        }
 
         return binding.root
     }
@@ -46,10 +50,8 @@ class LastEarthquakesFragment : Fragment() {
     private fun setStatusAndNavBarColor() {
         val window = activity?.window
         val color = SurfaceColors.SURFACE_2.getColor(requireContext())
-        window!!.statusBarColor = color // Set color of system statusBar same as ActionBar
-        window.navigationBarColor =
-            color // Set color of system navigationBar same as BottomNavigationView
-
+        window!!.statusBarColor = color
+        window.navigationBarColor = color
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
