@@ -1,6 +1,6 @@
 # Earthquakes App
 
-![Screenshot](app image link)
+![Screenshot](https://codersera.com/blog/wp-content/uploads/2021/03/learn-android-programming.png)
 
 Last Earthquakes app; **Dagger Hilt**, **Coroutines**, **Lifecycle**, **LiveData**, **ViewModel**, **Retrofit**, **Coil** based on **MVVM** Architecture.
 
