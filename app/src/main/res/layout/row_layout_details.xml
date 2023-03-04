@@ -128,7 +128,7 @@
                 android:id="@+id/icDepth"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="16dp"
                 android:src="@drawable/ic_depth"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_time"
                 app:layout_constraintStart_toEndOf="@+id/txt_time"

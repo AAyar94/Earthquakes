@@ -5,4 +5,8 @@
     <string name="last_earthquakes">Last Earthquakes</string>
     <string name="no_connection">No Connection!!</string>
     <string name="depth">Depth : </string>
+    <string name="search">Search</string>
+    <string name="sort">Sort</string>
+    <string name="high_mag">High Mag</string>
+    <string name="low_mag">Low Mag</string>
 </resources>

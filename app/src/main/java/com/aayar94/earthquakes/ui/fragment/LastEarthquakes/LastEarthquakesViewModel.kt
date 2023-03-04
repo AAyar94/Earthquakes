@@ -22,7 +22,8 @@ class LastEarthquakesViewModel @Inject constructor(
             if (result.isNullOrEmpty()) {
                 result = repository.getEarthquakesFromRemote()
                 repository.insertToDb(result)
-            }earthquakes.postValue(result)
+            }
+            earthquakes.postValue(result)
         }
     }
 
@@ -34,5 +35,27 @@ class LastEarthquakesViewModel @Inject constructor(
             repository.insertToDb(result)
             earthquakes.postValue(result)
         }
+    }
+
+    fun sortHighMag() {
+        viewModelScope.launch {
+            earthquakes.postValue(repository.sortHighMag())
+        }
+    }
+
+    fun sortLowMag() {
+        viewModelScope.launch {
+            earthquakes.postValue(repository.sortLowMag())
+        }
+    }
+
+    fun searchEarthquake(query: String?) {
+        viewModelScope.launch {
+            earthquakes.postValue(
+                repository.searchEarthquakes(query)
+            )
+        }
+
+
     }
 }
