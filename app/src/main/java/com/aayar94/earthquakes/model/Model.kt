@@ -35,16 +35,16 @@ data class EarthquakeModel(
 
     val magnitudeColor: Int
         get() = when (magnitude) {
-            in 0.0..2.9 -> Color.parseColor("#3ff10c")
-            in 3.0..6.9 -> Color.parseColor("#efc30e")
-            in 7.0..9.9 -> Color.parseColor("#f10c0c")
+            in 0.0..2.9 -> Color.parseColor("#97ff97")
+            in 3.0..6.9 -> Color.parseColor("#fffd99")
+            in 7.0..9.9 -> Color.parseColor("#ffa899")
             else -> Color.WHITE
         }
     val magnitudeColorLight: Int
         get() = when (magnitude) {
-            in 0.0..2.9 -> Color.parseColor("#defede")
-            in 3.0..6.9 -> Color.parseColor("#fdf7dc")
-            in 7.0..9.9 -> Color.parseColor("#fde9e9")
+            in 0.0..2.9 -> Color.parseColor("#b1ffb1")
+            in 3.0..6.9 -> Color.parseColor("#fffeb3")
+            in 7.0..9.9 -> Color.parseColor("#ffbeb3")
             else -> Color.WHITE
         }
     val magnitudeText: String
