@@ -12,7 +12,7 @@ interface EarthquakeDao {
     @Query("SELECT * FROM earthquakes")
     suspend fun getEarthquakes(): List<EarthquakeModel>
 
-    @Insert(onConflict = OnConflictStrategy.NONE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertEarthquakes(list: List<EarthquakeModel>)
 
     @Query("DELETE FROM earthquakes")

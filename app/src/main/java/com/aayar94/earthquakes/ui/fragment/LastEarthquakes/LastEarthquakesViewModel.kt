@@ -22,9 +22,7 @@ class LastEarthquakesViewModel @Inject constructor(
             if (result.isNullOrEmpty()) {
                 result = repository.getEarthquakesFromRemote()
                 repository.insertToDb(result)
-            }
-
-            earthquakes.postValue(result)
+            }earthquakes.postValue(result)
         }
     }
 
@@ -35,7 +33,6 @@ class LastEarthquakesViewModel @Inject constructor(
             repository.deleteDbList()
             repository.insertToDb(result)
             earthquakes.postValue(result)
-
         }
     }
 }
