@@ -32,7 +32,7 @@ Thanks for [@orhanayd](https://www.github.com/orhanayd)
 
 ## Prerequest for project
 
-If you want to try this project, before run,be sure you added your Google Maps SDK in local properties.
+If you want to try this project, before running, be sure you added your Google Maps SDK in local properties.
 
 ```js
 MAPS_API_KEY=COPY_YOUR_API_KEY_HERE
