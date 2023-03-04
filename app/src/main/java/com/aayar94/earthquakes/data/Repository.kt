@@ -16,7 +16,12 @@ class Repository @Inject constructor(
         return earthquakeDao.getEarthquakes()
     }
 
-    suspend fun insertToDb(list: List<EarthquakeModel>){
+    suspend fun insertToDb(list: List<EarthquakeModel>) {
         earthquakeDao.insertEarthquakes(list)
     }
+
+    suspend fun deleteDbList(){
+        earthquakeDao.deleteDbList()
+    }
+
 }

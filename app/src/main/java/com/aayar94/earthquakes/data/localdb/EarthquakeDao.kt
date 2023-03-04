@@ -1,6 +1,7 @@
 package com.aayar94.earthquakes.data.localdb
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -11,8 +12,9 @@ interface EarthquakeDao {
     @Query("SELECT * FROM earthquakes")
     suspend fun getEarthquakes(): List<EarthquakeModel>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.NONE)
     suspend fun insertEarthquakes(list: List<EarthquakeModel>)
 
-
+    @Query("DELETE FROM earthquakes")
+    suspend fun deleteDbList()
 }
