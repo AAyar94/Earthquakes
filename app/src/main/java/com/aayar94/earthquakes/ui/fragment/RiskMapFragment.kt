@@ -22,7 +22,7 @@ class RiskMapFragment : Fragment() {
 
         mBinding= FragmentRiskMapBinding.inflate(layoutInflater,container,false)
         // Inflate the layout for this fragment
-        binding.imageView.load(R.raw.riskmap)
+        binding.imageView.load(R.raw.risk_map)
         return binding.root
     }
 
