@@ -67,11 +67,11 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
                 when (menuItem.itemId) {
                     androidx.appcompat.R.id.home -> {
                         requireActivity().onBackPressed()
-
                     }
 
                     R.id.menu_sort_highMag -> viewModel.sortHighMag()
                     R.id.menu_sort_lowMag -> viewModel.sortLowMag()
+                    R.id.menu_sort_normal -> viewModel.getEarthquakes()
                 }
                 return true
             }
