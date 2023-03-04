@@ -30,7 +30,7 @@ Thanks for [@orhanayd](https://www.github.com/orhanayd)
 
 <img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot1.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot2.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot3.png" width="250" />
 
-## Prerequest for project
+## Pre-request for project
 
 If you want to try this project, before running, be sure you added your Google Maps SDK in local properties.
 
