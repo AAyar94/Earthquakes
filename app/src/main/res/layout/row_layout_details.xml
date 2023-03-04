@@ -20,6 +20,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_marginBottom="10dp"
             android:layout_height="match_parent">
 
 
@@ -28,8 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 app:cardCornerRadius="12dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,33 +61,32 @@
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/card_mag"
-                app:layout_constraintTop_toTopOf="@id/card_mag"
+                app:layout_constraintStart_toEndOf="@+id/card_mag"
+                app:layout_constraintTop_toTopOf="@+id/card_mag"
                 tools:text="@tools:sample/full_names" />
 
             <ImageView
                 android:id="@+id/img_calendar"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
+                android:layout_marginTop="12dp"
                 android:src="@drawable/ic_calendar"
-                app:layout_constraintBottom_toBottomOf="@id/card_mag"
-                app:layout_constraintStart_toStartOf="@id/txt_name"
-                app:layout_constraintTop_toBottomOf="@id/txt_name"
+                app:layout_constraintBottom_toBottomOf="@+id/card_mag"
+                app:layout_constraintStart_toStartOf="@+id/txt_name"
+                app:layout_constraintTop_toBottomOf="@+id/txt_name"
                 app:tint="@color/black" />
 
             <TextView
                 android:id="@+id/txt_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="5dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/img_calendar"
-                app:layout_constraintStart_toEndOf="@id/img_calendar"
-                app:layout_constraintTop_toTopOf="@id/img_calendar"
+                app:layout_constraintBottom_toBottomOf="@+id/img_calendar"
+                app:layout_constraintStart_toEndOf="@+id/img_calendar"
+                app:layout_constraintTop_toTopOf="@+id/img_calendar"
                 tools:text="@tools:sample/date/ddmmyy" />
 
             <ImageView
@@ -94,35 +94,25 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
                 android:src="@drawable/ic_alarm"
-                app:layout_constraintBottom_toBottomOf="@id/card_mag"
-                app:layout_constraintStart_toEndOf="@id/txt_date"
-                app:layout_constraintTop_toBottomOf="@id/txt_name"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_date"
+                app:layout_constraintStart_toEndOf="@+id/txt_date"
+                app:layout_constraintTop_toTopOf="@+id/txt_date"
                 app:tint="@color/black" />
 
             <TextView
                 android:id="@+id/txt_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@id/img_calendar"
-                app:layout_constraintStart_toEndOf="@id/img_time"
-                app:layout_constraintTop_toTopOf="@id/img_calendar"
+                app:layout_constraintBottom_toBottomOf="@+id/img_time"
+                app:layout_constraintStart_toEndOf="@+id/img_time"
+                app:layout_constraintTop_toTopOf="@+id/img_time"
                 tools:text="@tools:sample/date/ddmmyy" />
 
-            <com.google.android.material.divider.MaterialDivider
-                android:id="@+id/divider"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:background="@android:color/holo_blue_dark" />
 
             <ImageView
                 android:id="@+id/icDepth"
@@ -138,15 +128,17 @@
                 android:id="@+id/txtDepth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="8dp"
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/icDepth"
+                app:layout_constraintEnd_toEndOf="@+id/txt_name"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/icDepth"
                 app:layout_constraintTop_toTopOf="@+id/icDepth"
+                app:layout_constraintVertical_bias="0.0"
                 tools:text="8.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,6 @@ class MapsFragment : Fragment() {
             txtName.text = args.earthquakeModel.name
             txtDate.text = args.earthquakeModel.date
             txtTime.text = args.earthquakeModel.time
-            divider.setBackgroundColor(args.earthquakeModel.magnitudeColor)
             cardMag.setCardBackgroundColor(args.earthquakeModel.magnitudeColor)
             rootCardView.setCardBackgroundColor(args.earthquakeModel.magnitudeColorLight)
             txtDepth.text =
