@@ -24,7 +24,11 @@ data class EarthquakeModel(
     val lat: Double?,
 
     @SerializedName("lng")
-    val lng: Double?
+    val lng: Double?,
+
+    @SerializedName("depth")
+    val depth: Double?
+
 ) : Parcelable {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

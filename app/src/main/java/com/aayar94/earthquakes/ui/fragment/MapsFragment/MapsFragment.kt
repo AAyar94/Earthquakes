@@ -48,7 +48,9 @@ class MapsFragment : Fragment() {
             txtTime.text = args.earthquakeModel.time
             divider.setBackgroundColor(args.earthquakeModel.magnitudeColor)
             cardMag.setCardBackgroundColor(args.earthquakeModel.magnitudeColor)
-            root.setBackgroundColor(args.earthquakeModel.magnitudeColorLight)
+            rootCardView.setCardBackgroundColor(args.earthquakeModel.magnitudeColorLight)
+            txtDepth.text =
+                getText(R.string.depth).toString() + this@MapsFragment.args.earthquakeModel.depth.toString()
         }
     }
 
