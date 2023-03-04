@@ -66,7 +66,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 when (menuItem.itemId) {
                     androidx.appcompat.R.id.home -> {
-                        requireActivity().onBackPressed()
+                        requireActivity().onBackPressedDispatcher.onBackPressed()
                     }
 
                     R.id.menu_sort_highMag -> viewModel.sortHighMag()
