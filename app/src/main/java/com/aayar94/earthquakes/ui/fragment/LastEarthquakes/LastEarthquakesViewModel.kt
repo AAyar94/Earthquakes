@@ -27,7 +27,6 @@ class LastEarthquakesViewModel @Inject constructor(
         }
     }
 
-
     fun refreshEarthquakes() {
         viewModelScope.launch {
             val result = repository.getEarthquakesFromRemote()
@@ -55,7 +54,5 @@ class LastEarthquakesViewModel @Inject constructor(
                 repository.searchEarthquakes(query)
             )
         }
-
-
     }
 }

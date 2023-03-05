@@ -58,11 +58,6 @@ class AdapterLastEarthquakesRV(
         items = newItems as MutableList<EarthquakeModel>
         //notifyDataSetChanged()
         diffUtilResult.dispatchUpdatesTo(this)
-
-
-    /*this.items.clear()
-        this.items.addAll(items)
-        notifyDataSetChanged()*/
     }
 }
 

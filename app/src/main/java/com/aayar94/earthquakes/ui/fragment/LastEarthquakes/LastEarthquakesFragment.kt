@@ -68,7 +68,6 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
                     androidx.appcompat.R.id.home -> {
                         requireActivity().onBackPressedDispatcher.onBackPressed()
                     }
-
                     R.id.menu_sort_highMag -> viewModel.sortHighMag()
                     R.id.menu_sort_lowMag -> viewModel.sortLowMag()
                     R.id.menu_sort_normal -> viewModel.refreshEarthquakes()
@@ -109,7 +108,6 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
                 mAdapter.setItems(it)
             }
         }
-
     }
 
     override fun onDestroy() {
