@@ -71,7 +71,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
 
                     R.id.menu_sort_highMag -> viewModel.sortHighMag()
                     R.id.menu_sort_lowMag -> viewModel.sortLowMag()
-                    R.id.menu_sort_normal -> viewModel.getEarthquakes()
+                    R.id.menu_sort_normal -> viewModel.refreshEarthquakes()
                 }
                 return true
             }
