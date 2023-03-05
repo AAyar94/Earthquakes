@@ -6,6 +6,7 @@
         android:id="@+id/menu_search"
         android:icon="@drawable/ic_search"
         android:title="@string/search"
+        app:iconTint="@color/toolbar_tint_color"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom" />
     <group>
@@ -13,6 +14,7 @@
             android:id="@+id/menu_sort"
             android:icon="@drawable/ic_sort"
             android:title="@string/sort"
+            app:iconTint="@color/toolbar_tint_color"
             app:showAsAction="ifRoom">
             <menu>
                 <item

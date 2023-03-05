@@ -14,6 +14,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.material.elevation.SurfaceColors
 
 class MapsFragment : Fragment() {
     private var mBinding: FragmentMapsBinding? = null
@@ -37,6 +38,7 @@ class MapsFragment : Fragment() {
     ): View? {
         mBinding = FragmentMapsBinding.inflate(layoutInflater, container, false)
         setDetailInfo()
+        setStatusAndNavBarColor()
         return binding.root
     }
 
@@ -52,7 +54,12 @@ class MapsFragment : Fragment() {
                 getText(R.string.depth).toString() + this@MapsFragment.args.earthquakeModel.depth.toString()
         }
     }
-
+    private fun setStatusAndNavBarColor() {
+        val window = activity?.window
+        val color = SurfaceColors.SURFACE_2.getColor(requireContext())
+        window!!.statusBarColor = color
+        window.navigationBarColor = color
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
