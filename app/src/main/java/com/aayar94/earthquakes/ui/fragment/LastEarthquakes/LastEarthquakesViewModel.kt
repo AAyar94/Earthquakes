@@ -1,5 +1,6 @@
 package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,10 +20,11 @@ class LastEarthquakesViewModel @Inject constructor(
     fun getEarthquakes() {
         viewModelScope.launch {
             var result = repository.getEarthquakesFromLocal()
-            if (result.isNullOrEmpty()) {
+            if (result.isEmpty()) {
                 result = repository.getEarthquakesFromRemote()
                 repository.insertToDb(result)
             }
+            Log.e("Room Error", "Room Error")
             earthquakes.postValue(result)
         }
     }
@@ -30,7 +32,7 @@ class LastEarthquakesViewModel @Inject constructor(
     fun refreshEarthquakes() {
         viewModelScope.launch {
             val result = repository.getEarthquakesFromRemote()
-            //repository.deleteDbList()
+            repository.deleteDbList()
             repository.insertToDb(result)
             earthquakes.postValue(result)
         }

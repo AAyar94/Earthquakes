@@ -2,6 +2,7 @@ package com.aayar94.earthquakes.model
 
 import android.graphics.Color
 import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
@@ -24,17 +25,13 @@ data class EarthquakeModel(
     @SerializedName("date")
     val dateAndTime: String,
 
-    @SerializedName("lat")
-    val lat: Double?,
-
-    @SerializedName("lng")
-    val lng: Double?,
+    @SerializedName("geojson")
+    val geoJson: GeoJson,
 
     @SerializedName("depth")
     val depth: Double?
 
 ) : Parcelable {
-
 
     val magnitudeColor: Int
         get() = when (magnitude) {
@@ -63,4 +60,11 @@ data class EarthquakeModel(
         get() = String.format("%.4f",lat)
         val lngText: String
         get() = String.format("%4f",lng)*/
+
+
 }
+
+@Parcelize
+class GeoJson(
+    val coordinates: List<Double>
+) : Parcelable

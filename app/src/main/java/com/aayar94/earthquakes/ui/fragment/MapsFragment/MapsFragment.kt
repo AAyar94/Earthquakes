@@ -23,7 +23,9 @@ class MapsFragment : Fragment() {
     val args: MapsFragmentArgs by navArgs()
 
     private val callback = OnMapReadyCallback { googleMap ->
-        val location = LatLng(args.earthquakeModel.lat ?: 0.0, args.earthquakeModel.lng ?: 0.0)
+        val coordinates = args.earthquakeModel.geoJson.coordinates
+
+        val location = LatLng(coordinates[0], coordinates[1])
         val marker =
             googleMap.addMarker(MarkerOptions().position(location).title(args.earthquakeModel.name))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 8f))
@@ -54,12 +56,14 @@ class MapsFragment : Fragment() {
                 getText(R.string.depth).toString() + this@MapsFragment.args.earthquakeModel.depth.toString()
         }
     }
+
     private fun setStatusAndNavBarColor() {
         val window = activity?.window
         val color = SurfaceColors.SURFACE_2.getColor(requireContext())
         window!!.statusBarColor = color
         window.navigationBarColor = color
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?

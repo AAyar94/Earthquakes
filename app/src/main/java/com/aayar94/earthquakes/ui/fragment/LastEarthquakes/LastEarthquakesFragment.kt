@@ -68,6 +68,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
                     androidx.appcompat.R.id.home -> {
                         requireActivity().onBackPressedDispatcher.onBackPressed()
                     }
+
                     R.id.menu_sort_highMag -> viewModel.sortHighMag()
                     R.id.menu_sort_lowMag -> viewModel.sortLowMag()
                     R.id.menu_sort_normal -> viewModel.refreshEarthquakes()
@@ -101,12 +102,14 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
                 binding.earthquakesRV.visibility = View.INVISIBLE
                 binding.noDataIV.visibility = View.VISIBLE
                 binding.nodataTV.visibility = View.VISIBLE
+
             } else {
                 binding.earthquakesRV.visibility = View.VISIBLE
                 binding.noDataIV.visibility = View.INVISIBLE
                 binding.nodataTV.visibility = View.INVISIBLE
-                mAdapter.setItems(it)
+
             }
+            mAdapter.submitList(it)
         }
     }
 
