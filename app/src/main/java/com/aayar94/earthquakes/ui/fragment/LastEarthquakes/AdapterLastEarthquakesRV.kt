@@ -2,9 +2,11 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.aayar94.earthquakes.R
 import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.aayar94.earthquakes.model.EarthquakeModel
 
@@ -32,6 +34,7 @@ class AdapterLastEarthquakesRV(
                 root.setOnClickListener {
                     onItemClick(currentList[position])
                 }
+                root.animation = AnimationUtils.loadAnimation(root.context, R.anim.rv_item_anim)
             }
         }
     }
