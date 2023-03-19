@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
+package com.aayar94.earthquakes.ui.fragment.last_earthquakes
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LastEarthquakesViewModel @Inject constructor(
-    val repository: Repository
+    private val repository: Repository
 ) : ViewModel() {
 
     var earthquakes = MutableLiveData<List<EarthquakeModel>>()

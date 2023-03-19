@@ -14,5 +14,6 @@
         <!-- Customize your theme here. -->
         <item name="android:windowLightStatusBar">?isLightTheme</item>
         <item name="android:windowLightNavigationBar">?isLightTheme</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 </resources>

@@ -1,7 +1,6 @@
-package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
+package com.aayar94.earthquakes.ui.fragment.last_earthquakes
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -15,11 +14,8 @@ import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import androidx.navigation.fragment.findNavController
 import com.aayar94.earthquakes.R
 import com.aayar94.earthquakes.databinding.FragmentLastEarthquakesBinding
-import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,18 +25,21 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
     private val binding get() = mBinding!!
 
     private val mAdapter: AdapterLastEarthquakesRV by lazy {
-        AdapterLastEarthquakesRV {
-            val action =
-                LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(it)
-            findNavController().navigate(action)
-        }
+        AdapterLastEarthquakesRV()
     }
+
+    /**{
+    val action =
+    LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(it)
+    findNavController().navigate(action)
+    }
+    }*/
     val viewModel: LastEarthquakesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentLastEarthquakesBinding.inflate(layoutInflater)
         setupMenu()
         setupRecyclerView()
@@ -68,7 +67,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.menu_lastearthquakes_fragment, menu)
                 val search = menu.findItem(R.id.menu_search)
-                val searchView = search.actionView as? androidx.appcompat.widget.SearchView
+                val searchView = search.actionView as? SearchView
                 searchView?.isSubmitButtonEnabled = true
                 searchView?.setOnQueryTextListener(this@LastEarthquakesFragment)
             }
@@ -102,7 +101,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.earthquakesRV.adapter = mAdapter
     }
 
-    fun initObserver() {
+    private fun initObserver() {
         viewModel.earthquakes.observe(viewLifecycleOwner) {
             if (it.isNullOrEmpty()) {
                 binding.earthquakesRV.visibility = View.INVISIBLE

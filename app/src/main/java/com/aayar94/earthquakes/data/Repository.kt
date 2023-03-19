@@ -6,8 +6,8 @@ import com.aayar94.earthquakes.model.EarthquakeModel
 import javax.inject.Inject
 
 class Repository @Inject constructor(
-    val earthquakeService: EarthquakeService,
-    val earthquakeDao: EarthquakeDao
+    private val earthquakeService: EarthquakeService,
+    private val earthquakeDao: EarthquakeDao
 ) {
     suspend fun getEarthquakesFromRemote(): List<EarthquakeModel> {
         return try {

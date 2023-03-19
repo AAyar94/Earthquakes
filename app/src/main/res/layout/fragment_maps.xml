@@ -15,7 +15,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".ui.fragment.MapsFragment.MapsFragment" />
+        tools:context=".ui.fragment.maps_fragment.MapsFragment" />
 
     <include
         android:id="@+id/include"
