@@ -3,6 +3,7 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -12,6 +13,7 @@ import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.aayar94.earthquakes.model.EarthquakeModel
 
 class AdapterLastEarthquakesRV(
+    val onItemClick: (earthquakeModel: EarthquakeModel, view : ConstraintLayout) -> Unit
 ) :
     ListAdapter<EarthquakeModel, AdapterLastEarthquakesRV.EarthquakeViewHolder>(
         BaseItemCallback()
