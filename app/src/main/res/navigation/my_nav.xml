@@ -9,10 +9,16 @@
         android:id="@+id/lastEarthquakesFragment"
         android:name="com.aayar94.earthquakes.ui.fragment.LastEarthquakes.LastEarthquakesFragment"
         android:label="@string/last_earthquakes"
-        tools:layout="@layout/fragment_last_earthquakes" >
+        tools:layout="@layout/fragment_last_earthquakes">
         <action
             android:id="@+id/action_lastEarthquakesFragment_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
+            app:destination="@id/mapsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/lastEarthquakesFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/riskMapFragment"
@@ -23,7 +29,7 @@
         android:id="@+id/mapsFragment"
         android:name="com.aayar94.earthquakes.ui.fragment.MapsFragment.MapsFragment"
         android:label="@string/maps"
-        tools:layout="@layout/fragment_maps" >
+        tools:layout="@layout/fragment_maps">
         <action
             android:id="@+id/action_mapsFragment_to_lastEarthquakesFragment"
             app:destination="@id/lastEarthquakesFragment" />

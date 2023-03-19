@@ -57,15 +57,6 @@ class AdapterLastEarthquakesRV(
     override fun onBindViewHolder(holder: EarthquakeViewHolder, position: Int) {
         holder.bindData(position)
     }
-
-    /**fun setItems(newItems: List<EarthquakeModel>) {
-    val earthquakeDiffUtil = EarthquakeDiffUtil(items, newItems)
-    val diffUtilResult = DiffUtil.calculateDiff(earthquakeDiffUtil)
-    items = newItems as MutableList<EarthquakeModel>
-    //notifyDataSetChanged()
-    diffUtilResult.dispatchUpdatesTo(this)
-    }*/
-
 }
 
 class BaseItemCallback :
