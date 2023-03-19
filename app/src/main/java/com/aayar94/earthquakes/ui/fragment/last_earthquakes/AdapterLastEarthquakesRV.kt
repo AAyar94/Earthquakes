@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
+package com.aayar94.earthquakes.ui.fragment.last_earthquakes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

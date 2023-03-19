@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
+package com.aayar94.earthquakes.ui.fragment.last_earthquakes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -39,7 +39,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentLastEarthquakesBinding.inflate(layoutInflater)
         setupMenu()
         setupRecyclerView()
@@ -67,7 +67,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.menu_lastearthquakes_fragment, menu)
                 val search = menu.findItem(R.id.menu_search)
-                val searchView = search.actionView as? androidx.appcompat.widget.SearchView
+                val searchView = search.actionView as? SearchView
                 searchView?.isSubmitButtonEnabled = true
                 searchView?.setOnQueryTextListener(this@LastEarthquakesFragment)
             }
@@ -101,7 +101,7 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
         binding.earthquakesRV.adapter = mAdapter
     }
 
-    fun initObserver() {
+    private fun initObserver() {
         viewModel.earthquakes.observe(viewLifecycleOwner) {
             if (it.isNullOrEmpty()) {
                 binding.earthquakesRV.visibility = View.INVISIBLE
