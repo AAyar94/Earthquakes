@@ -16,7 +16,6 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.elevation.SurfaceColors
-import java.util.concurrent.TimeUnit
 
 class MapsFragment : Fragment() {
     private var mBinding: FragmentMapsBinding? = null
@@ -46,6 +45,18 @@ class MapsFragment : Fragment() {
         return binding.root
     }
 
+    override fun onStart() {
+        super.onStart()
+        postponeEnterTransition()
+        startPostponedEnterTransition()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
+
+    }
+
     private fun setDetailInfo() {
         with(binding.include) {
             txtMag.text = args.earthquakeModel.magnitudeText
@@ -56,6 +67,7 @@ class MapsFragment : Fragment() {
             rootCardView.setCardBackgroundColor(args.earthquakeModel.magnitudeColorLight)
             txtDepth.text =
                 "${getText(R.string.depth)}${this@MapsFragment.args.earthquakeModel.depth.toString()}"
+            binding.include.root.transitionName = "CardViewTransition"
         }
     }
 

@@ -3,7 +3,7 @@ package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import androidx.navigation.fragment.FragmentNavigator
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -12,14 +12,10 @@ import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.aayar94.earthquakes.model.EarthquakeModel
 
 class AdapterLastEarthquakesRV(
-    val onItemClick: (earthquakeModel: EarthquakeModel) -> Unit
 ) :
     ListAdapter<EarthquakeModel, AdapterLastEarthquakesRV.EarthquakeViewHolder>(
         BaseItemCallback()
     ) {
-//<AdapterLastEarthquakesRV.EarthquakeViewHolder>() {
-
-    //private var items: MutableList<EarthquakeModel> = mutableListOf()
 
     inner class EarthquakeViewHolder(private val binding: RowLayoutEarthquakeBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -31,11 +27,19 @@ class AdapterLastEarthquakesRV(
                 txtTime.text = currentList[position].time
                 divider.setBackgroundColor(currentList[position].magnitudeColor)
                 cardMag.setCardBackgroundColor(currentList[position].magnitudeColor)
-                root.setBackgroundColor(currentList[position].magnitudeColorLight)
-                root.setOnClickListener {
-                    onItemClick(currentList[position])
-                }
+                rootCardView.setCardBackgroundColor(currentList[position].magnitudeColor)
                 root.animation = AnimationUtils.loadAnimation(root.context, R.anim.rv_item_anim)
+                root.transitionName = currentList[position].name
+                root.setOnClickListener {
+                    val extras = FragmentNavigatorExtras(
+                        binding.root to "CardViewTransition"
+                    )
+                    val action =
+                        LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(
+                            currentList[position]
+                        )
+                    androidx.navigation.Navigation.findNavController(it).navigate(action, extras)
+                }
             }
         }
     }
@@ -60,8 +64,9 @@ class AdapterLastEarthquakesRV(
     }
 }
 
+
 class BaseItemCallback :
-    DiffUtil.ItemCallback<com.aayar94.earthquakes.model.EarthquakeModel>() {
+    DiffUtil.ItemCallback<EarthquakeModel>() {
     override fun areItemsTheSame(oldItem: EarthquakeModel, newItem: EarthquakeModel) =
         oldItem.toString() == newItem.toString()
 
