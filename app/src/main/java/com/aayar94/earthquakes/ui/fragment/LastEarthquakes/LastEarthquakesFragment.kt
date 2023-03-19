@@ -1,6 +1,7 @@
 package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -10,12 +11,15 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.aayar94.earthquakes.R
 import com.aayar94.earthquakes.databinding.FragmentLastEarthquakesBinding
+import com.aayar94.earthquakes.databinding.RowLayoutEarthquakeBinding
 import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,15 +28,13 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
     private var mBinding: FragmentLastEarthquakesBinding? = null
     private val binding get() = mBinding!!
 
-
-    val mAdapter: AdapterLastEarthquakesRV by lazy {
+    private val mAdapter: AdapterLastEarthquakesRV by lazy {
         AdapterLastEarthquakesRV {
             val action =
                 LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(it)
             findNavController().navigate(action)
         }
     }
-
     val viewModel: LastEarthquakesViewModel by viewModels()
 
     override fun onCreateView(
@@ -49,8 +51,16 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
             binding.swipeToRefreshLayout.isRefreshing = false
             viewModel.refreshEarthquakes()
         }
-
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getEarthquakes()
+        postponeEnterTransition()
+        binding.earthquakesRV.doOnPreDraw {
+            startPostponedEnterTransition()
+        }
     }
 
     private fun setupMenu() {
@@ -87,10 +97,6 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
         window.navigationBarColor = color
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.getEarthquakes()
-    }
 
     private fun setupRecyclerView() {
         binding.earthquakesRV.adapter = mAdapter

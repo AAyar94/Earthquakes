@@ -1,6 +1,7 @@
 package com.aayar94.earthquakes.ui.fragment.MapsFragment
 
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.elevation.SurfaceColors
+import java.util.concurrent.TimeUnit
 
 class MapsFragment : Fragment() {
     private var mBinding: FragmentMapsBinding? = null
@@ -53,7 +55,7 @@ class MapsFragment : Fragment() {
             cardMag.setCardBackgroundColor(args.earthquakeModel.magnitudeColor)
             rootCardView.setCardBackgroundColor(args.earthquakeModel.magnitudeColorLight)
             txtDepth.text =
-                getText(R.string.depth).toString() + this@MapsFragment.args.earthquakeModel.depth.toString()
+                "${getText(R.string.depth)}${this@MapsFragment.args.earthquakeModel.depth.toString()}"
         }
     }
 
