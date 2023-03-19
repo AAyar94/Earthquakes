@@ -16,9 +16,7 @@
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right"
-            app:popUpTo="@id/lastEarthquakesFragment"
-            app:popUpToInclusive="true" />
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/riskMapFragment"
@@ -32,7 +30,11 @@
         tools:layout="@layout/fragment_maps">
         <action
             android:id="@+id/action_mapsFragment_to_lastEarthquakesFragment"
-            app:destination="@id/lastEarthquakesFragment" />
+            app:destination="@id/lastEarthquakesFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/lastEarthquakesFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="earthquakeModel"
             app:argType="com.aayar94.earthquakes.model.EarthquakeModel" />
