@@ -26,17 +26,19 @@ Thanks for [@orhanayd](https://www.github.com/orhanayd)
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) -> ViewModel class is designed to store and manage UI-related data in a lifecycle conscious way.
 - [Coil](https://github.com/coil-kt/coil) -> Image loading for Android backed by Kotlin Coroutines.
 
-## Android 📱 Application Screens 📸
-
-<img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot1.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot2.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot3.png" width="250" />
-
-## Pre-request for project
+## Setup
 
 If you want to try this project, before running, be sure you added your Google Maps SDK in local properties.
 
 ```js
 MAPS_API_KEY=COPY_YOUR_API_KEY_HERE
 ```
+
+
+## Android 📱 Application Screens 📸
+
+<img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot1.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot2.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot3.png" width="250" />
+
 
 ## License ℹ️
 ```
