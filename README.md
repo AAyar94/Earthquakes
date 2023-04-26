@@ -14,6 +14,13 @@ Thanks for [@orhanayd](https://www.github.com/orhanayd)
 
 ![Screenshot](https://androidwave.com/wp-content/uploads/2019/05/mvvm-architecture-app-in-android.png)
 
+## Setup
+
+If you want to try this project, before running, be sure you added your Google Maps SDK in local properties.
+
+```js
+MAPS_API_KEY=COPY_YOUR_API_KEY_HERE
+```
 
 ## Libraries 🛠 ⚙️
 - [Kotlin](https://github.com/JetBrains/kotlin) -> The Kotlin Programming Language.
@@ -30,13 +37,7 @@ Thanks for [@orhanayd](https://www.github.com/orhanayd)
 
 <img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot1.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot2.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot3.png" width="250" />
 
-## Pre-request for project
 
-If you want to try this project, before running, be sure you added your Google Maps SDK in local properties.
-
-```js
-MAPS_API_KEY=COPY_YOUR_API_KEY_HERE
-```
 
 ## License ℹ️
 ```
