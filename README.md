@@ -37,6 +37,8 @@ MAPS_API_KEY=COPY_YOUR_API_KEY_HERE
 
 <img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot1.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot2.png" width="250" /><img src="https://github.com/AAyar94/Earthquakes/blob/main/screenshots/app_screenshot3.png" width="250" />
 
+## Setup
+
 
 
 ## License ℹ️
