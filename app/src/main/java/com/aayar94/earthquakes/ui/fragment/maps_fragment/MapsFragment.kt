@@ -29,9 +29,9 @@ class MapsFragment : Fragment() {
         val location = LatLng(coordinates[0], coordinates[1])
         val marker =
             googleMap.addMarker(MarkerOptions().position(location).title(args.earthquakeModel.name))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 8f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 7f))
         marker?.showInfoWindow()
-        googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID
+        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
     }
 
     override fun onCreateView(
