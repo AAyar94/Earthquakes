@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui.fragment.last_earthquakes
+package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +14,8 @@ import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.aayar94.earthquakes.R
 import com.aayar94.earthquakes.databinding.FragmentLastEarthquakesBinding
 import com.google.android.material.elevation.SurfaceColors
@@ -25,15 +27,16 @@ class LastEarthquakesFragment : Fragment(), SearchView.OnQueryTextListener {
     private val binding get() = mBinding!!
 
     private val mAdapter: AdapterLastEarthquakesRV by lazy {
-        AdapterLastEarthquakesRV()
+        AdapterLastEarthquakesRV { model, view ->
+            val extra = FragmentNavigatorExtras(
+                view to "cardViewTransition"
+            )
+            val action =
+                LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(model)
+            findNavController().navigate(action, extra)
+        }
     }
 
-    /**{
-    val action =
-    LastEarthquakesFragmentDirections.actionLastEarthquakesFragmentToMapsFragment(it)
-    findNavController().navigate(action)
-    }
-    }*/
     val viewModel: LastEarthquakesViewModel by viewModels()
 
     override fun onCreateView(
