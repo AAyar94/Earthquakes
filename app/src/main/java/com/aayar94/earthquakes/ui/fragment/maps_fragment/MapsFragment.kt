@@ -29,16 +29,16 @@ class MapsFragment : Fragment() {
         val location = LatLng(coordinates[0], coordinates[1])
         val marker =
             googleMap.addMarker(MarkerOptions().position(location).title(args.earthquakeModel.name))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 7f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 8f))
         marker?.showInfoWindow()
-        googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+        googleMap.mapType = GoogleMap.MAP_TYPE_HYBRID
     }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         mBinding = FragmentMapsBinding.inflate(layoutInflater, container, false)
         setDetailInfo()
         setStatusAndNavBarColor()
@@ -54,7 +54,6 @@ class MapsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedElementEnterTransition = TransitionInflater.from(context).inflateTransition(android.R.transition.move)
-
     }
 
     private fun setDetailInfo() {
