@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui.fragment.LastEarthquakes
+package com.aayar94.earthquakes.ui.fragment.last_earthquakes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,9 +18,6 @@ import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.aayar94.earthquakes.R
 import com.aayar94.earthquakes.databinding.FragmentLastEarthquakesBinding
-import com.aayar94.earthquakes.ui.fragment.last_earthquakes.AdapterLastEarthquakesRV
-import com.aayar94.earthquakes.ui.fragment.last_earthquakes.LastEarthquakesFragmentDirections
-import com.aayar94.earthquakes.ui.fragment.last_earthquakes.LastEarthquakesViewModel
 import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
