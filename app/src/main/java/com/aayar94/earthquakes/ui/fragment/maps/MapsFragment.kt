@@ -1,4 +1,4 @@
-package com.aayar94.earthquakes.ui.fragment.maps_fragment
+package com.aayar94.earthquakes.ui.fragment.maps
 
 import android.os.Bundle
 import android.transition.TransitionInflater

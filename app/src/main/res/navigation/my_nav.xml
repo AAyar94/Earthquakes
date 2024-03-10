@@ -25,7 +25,7 @@
         tools:layout="@layout/fragment_risk_map" />
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.aayar94.earthquakes.ui.fragment.maps_fragment.MapsFragment"
+        android:name="com.aayar94.earthquakes.ui.fragment.maps.MapsFragment"
         android:label="@string/maps"
         tools:layout="@layout/fragment_maps">
         <action
