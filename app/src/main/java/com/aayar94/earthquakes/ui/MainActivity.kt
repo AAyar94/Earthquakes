@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setStatusAndNavBarColor()
     }
 
-    fun setStatusAndNavBarColor() {
+    private fun setStatusAndNavBarColor() {
         val window = window
         val color = SurfaceColors.SURFACE_2.getColor(this)
         window!!.statusBarColor = color
