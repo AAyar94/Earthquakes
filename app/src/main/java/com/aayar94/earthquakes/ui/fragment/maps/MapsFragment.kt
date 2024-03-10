@@ -21,12 +21,12 @@ class MapsFragment : Fragment() {
     private var mBinding: FragmentMapsBinding? = null
     private val binding get() = mBinding!!
 
-    val args: MapsFragmentArgs by navArgs()
+    private val args: MapsFragmentArgs by navArgs()
 
     private val callback = OnMapReadyCallback { googleMap ->
         val coordinates = args.earthquakeModel.geoJson.coordinates
 
-        val location = LatLng(coordinates[0], coordinates[1])
+        val location = LatLng(coordinates[1], coordinates[0])
         val marker =
             googleMap.addMarker(MarkerOptions().position(location).title(args.earthquakeModel.name))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 8f))
